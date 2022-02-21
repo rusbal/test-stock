@@ -21,14 +21,14 @@ class Main
   end
 
   def valid?
-    validate_length && validate_prices
+    valid_length? && valid_prices?
   end
 
-  def validate_length
+  def valid_length?
     @prices.length >= 1 && @prices.length <= 105
   end
 
-  def validate_prices
+  def valid_prices?
     @prices.find { |price| price < 0 || price > 200 }.nil?
   end
 end
