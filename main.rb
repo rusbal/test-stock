@@ -13,11 +13,7 @@ class Main
       @prices.each_with_index do |priceb, idxb|
         next if idxb <= idxa
 
-        hold = priceb - pricea
-
-        if hold > @max
-          @max = hold
-        end
+        @max = [@max, priceb - pricea].max
       end
     end
 
