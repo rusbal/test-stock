@@ -10,9 +10,7 @@ class Main
     return "Error" unless valid?
 
     @prices.each_with_index do |pricea, idxa|
-      @prices.each_with_index do |priceb, idxb|
-        next if idxb <= idxa
-
+      @prices[idxa + 1..-1].each_with_index do |priceb, idxb|
         @max = [@max, priceb - pricea].max
       end
     end
