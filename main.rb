@@ -5,19 +5,24 @@ class Main
 
   def initialize(prices)
     @prices = prices
-    @max = 0
   end
 
   def compute
     return "Error" unless valid?
 
-    prices.each_with_index do |pricea, idx|
-      prices[idx + 1..-1].each do |priceb|
-        @max = [@max, priceb - pricea].max
+    [max_price, 0].max
+  end
+
+  def max_price
+    diffs = []
+
+    prices.each_with_index do |left_price, idx|
+      prices[idx + 1..-1].each do |right_price|
+        diffs << right_price - left_price
       end
     end
 
-    @max
+    diffs.max
   end
 
   def valid?
