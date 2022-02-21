@@ -9,8 +9,8 @@ class Main
   def compute
     return "Error" unless valid?
 
-    @prices.each_with_index do |pricea, idxa|
-      @prices[idxa + 1..-1].each_with_index do |priceb, idxb|
+    @prices.each_with_index do |pricea, idx|
+      @prices[idx + 1..-1].each do |priceb|
         @max = [@max, priceb - pricea].max
       end
     end
